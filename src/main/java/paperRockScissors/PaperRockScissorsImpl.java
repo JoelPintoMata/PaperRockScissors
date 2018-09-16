@@ -19,7 +19,7 @@ public class PaperRockScissorsImpl implements PaperRockScissors {
     /**
      * Paper Rock Scissors constructor
      * @param numberOfPlays number of game plays, or -1 to play until a winner is found
-     * @param scanner
+     * @param scanner the human player inputs scanner
      */
     public PaperRockScissorsImpl(int numberOfPlays, Scanner scanner){
         this.numberOfPlays = numberOfPlays;
@@ -28,7 +28,7 @@ public class PaperRockScissorsImpl implements PaperRockScissors {
 
     @Override
     public void start() {
-        while (!isOver()) {
+        while (numberOfPlays > 0) {
             Optional<Integer> handWinner;
             if((handWinner = getHandResult(playNextHand())).isPresent())
                 score[handWinner.get()]++;
@@ -39,19 +39,11 @@ public class PaperRockScissorsImpl implements PaperRockScissors {
     @Override
     public void stop() {
         if(score[0] == score[1]) {
-            System.out.println("It's a tie, winners were found");
+            System.out.println("It's a tie, no winners found");
         } else if(score[0] > score[1]) {
             System.out.println("The winner is: " + players[0]);
         } else
             System.out.println("The winner is: " + players[1]);
-    }
-
-    /**
-     * Checks if this game is over
-     * @return true if the game is over, false, otherwise
-     */
-    public boolean isOver(){
-        return numberOfPlays > 1;
     }
 
     /**
@@ -79,6 +71,7 @@ public class PaperRockScissorsImpl implements PaperRockScissors {
 
     /**
      * Randomly generates a computer play
+     * @return a computer play
      */
     protected ShapresEnum getComputerPlay() {
         return ShapresEnum.getRandom();
@@ -90,7 +83,8 @@ public class PaperRockScissorsImpl implements PaperRockScissors {
     private ShapresEnum getCommandLinePlay() {
         ShapresEnum shapresEnumAux;
         while(true){
-            System.out.println(players[1] + " enter your next play ((p)aper, (r)ock or (s)cissors)");
+            System.out.println();
+            System.out.println(players[1] + ", enter your next play: (p)aper, (r)ock or (s)cissors");
             shapresEnumAux = ShapresEnum.get(scanner.next());
             if(shapresEnumAux == null)
                 System.out.println("(invalid choice (p)aper, (r)ock or (s)cissors)\n");
@@ -116,10 +110,10 @@ public class PaperRockScissorsImpl implements PaperRockScissors {
             winner = Optional.ofNullable(play1.get(0).getPlayerId());
         } else if(!play2.isEmpty() && !play3.isEmpty()) {
             System.out.print("Rock beats (blunts) scissors ");
-            return Optional.ofNullable(play2.get(0).getPlayerId());
+            winner = Optional.ofNullable(play2.get(0).getPlayerId());
         } else if(!play1.isEmpty() && !play3.isEmpty()) {
             System.out.print("Scissors beats (cuts) paper ");
-            return Optional.ofNullable(play3.get(0).getPlayerId());
+            winner = Optional.ofNullable(play3.get(0).getPlayerId());
         }
 
         if(winner.isPresent())

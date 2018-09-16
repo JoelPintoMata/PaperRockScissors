@@ -8,16 +8,20 @@ public class ShapresEnumTest {
 
     private ShapresEnum shapresEnum;
 
+    public ShapresEnumTest(ShapresEnum shapresEnum) {
+        this.shapresEnum = shapresEnum;
+    }
+
     @org.junit.Before
-    public void setUp() throws Exception {
+    public void setUp() {
     }
 
     @org.junit.After
-    public void tearDown() throws Exception {
+    public void tearDown() {
     }
 
     @org.junit.Test
-    public void paperRockScissorsEnumTest() throws Exception {
+    public void paperRockScissorsEnumTest() {
         Assert.assertEquals("get() method must return PAPER for input 'p'", shapresEnum.get("p"), ShapresEnum.PAPER);
         Assert.assertEquals("get() method must return ROCK for input 'r'", shapresEnum.get("r"), ShapresEnum.ROCK);
         Assert.assertEquals("get() method must return SCISSORS for input 's'", shapresEnum.get("s"), ShapresEnum.SCISSORS);

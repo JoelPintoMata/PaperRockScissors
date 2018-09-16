@@ -12,16 +12,7 @@ public interface PaperRockScissors {
     void start();
 
     /**
-     * Checks the game is over
-     *
-     * @return true if the game is over, false, if not
-     */
-    boolean isOver();
-
-    /**
-     * Stops the game and returns the name of the winner
-     *
-     * @return the name of the winner, or null, if no winners are found or the games ends in a draw
+     * Stops the game
      */
     void stop();
 }

@@ -1,13 +1,14 @@
 package paperRockScissors;
 
 import junit.framework.Assert;
-import org.junit.jupiter.api.function.Executable;
-
 import java.io.ByteArrayInputStream;
 import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * PaperRockScissorsImpl tests class
+ */
 class PaperRockScissorsImplTest {
 
     private PaperRockScissorsImpl paperRockScissors;
@@ -15,7 +16,7 @@ class PaperRockScissorsImplTest {
     
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
-        paperRockScissors = new PaperRockScissorsImpl(-1, scanner);
+        paperRockScissors = new PaperRockScissorsImpl(1, scanner);
     }
 
     @org.junit.jupiter.api.AfterEach
@@ -24,14 +25,20 @@ class PaperRockScissorsImplTest {
 
     @org.junit.jupiter.api.Test
     void start() {
+        ByteArrayInputStream in = new ByteArrayInputStream("p\np\np".getBytes());
+        System.setIn(in);
+        this.scanner = new Scanner(System.in);
+        paperRockScissors = new PaperRockScissorsImpl(3, scanner);
+        paperRockScissors.playNextHand();
+        paperRockScissors.playNextHand();
+        paperRockScissors.playNextHand();
+//        the forth time we try to play fails
+        assertThrows(NoSuchElementException.class,
+                () -> paperRockScissors.playNextHand());
     }
 
     @org.junit.jupiter.api.Test
     void stop() {
-    }
-
-    @org.junit.jupiter.api.Test
-    void isOver() {
     }
 
     /**
@@ -43,7 +50,7 @@ class PaperRockScissorsImplTest {
         ByteArrayInputStream in = new ByteArrayInputStream("p".getBytes());
         System.setIn(in);
         this.scanner = new Scanner(System.in);
-        paperRockScissors = new PaperRockScissorsImpl(-1, scanner);
+        paperRockScissors = new PaperRockScissorsImpl(1, scanner);
         var play = paperRockScissors.playNextHand();
         Assert.assertNotNull(play);
         Assert.assertEquals(play.get(0).getPlayerId(), 0);
@@ -53,7 +60,7 @@ class PaperRockScissorsImplTest {
         in = new ByteArrayInputStream("r".getBytes());
         System.setIn(in);
         this.scanner = new Scanner(System.in);
-        paperRockScissors = new PaperRockScissorsImpl(-1, scanner);
+        paperRockScissors = new PaperRockScissorsImpl(1, scanner);
         play = paperRockScissors.playNextHand();
         Assert.assertNotNull(play);
         Assert.assertEquals(play.get(0).getPlayerId(), 0);
@@ -63,7 +70,7 @@ class PaperRockScissorsImplTest {
         in = new ByteArrayInputStream("s".getBytes());
         System.setIn(in);
         this.scanner = new Scanner(System.in);
-        paperRockScissors = new PaperRockScissorsImpl(-1, scanner);
+        paperRockScissors = new PaperRockScissorsImpl(1, scanner);
 
         play = paperRockScissors.playNextHand();
         Assert.assertNotNull(play);
@@ -74,7 +81,7 @@ class PaperRockScissorsImplTest {
         in = new ByteArrayInputStream("x".getBytes());
         System.setIn(in);
         this.scanner = new Scanner(System.in);
-        paperRockScissors = new PaperRockScissorsImpl(-1, scanner);
+        paperRockScissors = new PaperRockScissorsImpl( 1, scanner);
 
 //        Tests that only the correct parameters are accepted
         assertThrows(NoSuchElementException.class,
