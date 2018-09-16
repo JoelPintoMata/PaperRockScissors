@@ -1,27 +1,27 @@
-import strategy.template.Strategy;
-import strategy.template.StrategyTemplate;
-import strategy.template.paperRockScissors.PaperRockScissorsImpl;
+import paperRockScissors.PaperRockScissors;
+import paperRockScissors.PaperRockScissorsImpl;
+
+import java.util.Scanner;
 
 
 /**
- * Step 1 implementation of the "Strategy" design pattern:
- *  "Clients couple strictly to the interface" of a strategy, that is, the game selection/execution is done against a StrategyTemplate, not the specific game.
- *
- *  We could easily add a new game type(s) in the algorithms Strategy type array without other code changes in order to run different codes
- *
- *      StrategyTemplate paperRockScissors  = new PaperRockScissorsImpl();
- *      StrategyTemplate soduku             = new SodukuImpl();
- *      Strategy[] algorithms               = {paperRockScissors, soduku};
+ * Paper Rock Scissors main class
  */
 public class Main {
 
     public static void main(String[] args) {
-        StrategyTemplate paperRockScissors = new PaperRockScissorsImpl();
+        try {
+//            create a scanner so we can read the command-line input
+            Scanner scanner = new Scanner(System.in);
 
-        Strategy[] algorithms = {paperRockScissors};
+            System.out.println("Enter the maximum number of plays of -1 to play until a winner is found: ");
+            int numberOfPlays = Integer.parseInt(scanner.next());
 
-        for (int i=0; i < algorithms.length; i++) {
-            algorithms[i].solve();
+            PaperRockScissors paperRockScissors = new PaperRockScissorsImpl(numberOfPlays, scanner);
+            paperRockScissors.start();
+
+        } catch (NumberFormatException e) {
+            System.out.println("The maximum number of plays should be of type number, bye.\n");
         }
     }
 }

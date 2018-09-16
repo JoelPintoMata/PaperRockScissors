@@ -1,29 +1,29 @@
-package strategy.template.paperRockScissors;
+package paperRockScissors;
 
 /**
  * Enumerator class specifying
  * 1) available plays for the paper, rock, scissors methods.
  * 2) auxiliary methods supporting the usage of this enumeartor
  */
-public enum PaperRockScissorsEnum {
+public enum ShapresEnum {
     PAPER,
     ROCK,
     SCISSORS;
 
     /**
-     * Generates a random PaperRockScissorsEnum
-     * @return a random PaperRockScissorsEnum
+     * Generates a random ShapresEnum
+     * @return a random ShapresEnum
      */
-    public static PaperRockScissorsEnum getRandom() {
+    public static ShapresEnum getRandom() {
         return values()[(int) (Math.random() * values().length)];
     }
 
     /**
-     * Auxiliary method getter to convert a string into an PaperRockScissorsEnum
+     * Auxiliary method getter to convert a string into an ShapresEnum
      * @param value the string value
-     * @return a random PaperRockScissorsEnum
+     * @return a random ShapresEnum
      */
-    public static PaperRockScissorsEnum get(String value) {
+    public static ShapresEnum get(String value) {
         if(value.equalsIgnoreCase("p"))
             return PAPER;
         if(value.equalsIgnoreCase("r"))

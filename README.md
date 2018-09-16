@@ -3,8 +3,14 @@ Usage
 
 Compile
 -------
-```
+```bash
 $ mvn compile
+```
+
+Package
+-------
+```bash
+$ mvn package
 ```
 
 Run
@@ -12,9 +18,13 @@ Run
 ```
 $ mvn exec:java -Dexec.mainClass="Main"
 ```
+, compile, package and run
+```bash
+$ mvn compile && mvn package && mvn exec:java -Dexec.mainClass="Main"
+```
 
 Test
-----
+```bash
 ```
 $ mvn test
 ```
