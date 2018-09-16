@@ -7,14 +7,14 @@ package paperRockScissors;
 public class Play {
 
     private final int playerId;
-    private final ShapresEnum shape;
+    private final ShapesEnum shape;
 
-    public Play(int playerId, ShapresEnum shape) {
+    public Play(int playerId, ShapesEnum shape) {
         this.playerId = playerId;
         this.shape = shape;
     }
 
-    public ShapresEnum getShape() {
+    public ShapesEnum getShape() {
         return shape;
     }
 
