@@ -83,13 +83,12 @@ public class PaperRockScissorsImpl implements PaperRockScissors {
     private ShapesEnum getCommandLinePlay() {
         Optional<ShapesEnum> shapesEnumAux;
         while(true){
-            System.out.println();
-            System.out.println(players[1] + ", enter your next play: (p)aper, (r)ock or (s)cissors");
+            System.out.println("\n" + players[1] + ", enter your next play: (p)aper, (r)ock or (s)cissors");
             shapesEnumAux = ShapesEnum.get(scanner.next());
             if(shapesEnumAux.isPresent())
                 return shapesEnumAux.get();
             else
-                System.out.println("(invalid choice (p)aper, (r)ock or (s)cissors)\n");
+                System.out.println("Invalid choice. Play: (p)aper, (r)ock or (s)cissors\n");
         }
     }
 
@@ -119,7 +118,7 @@ public class PaperRockScissorsImpl implements PaperRockScissors {
         if(winner.isPresent())
             System.out.println(players[winner.get()] + " wins this hand");
         else
-            System.out.println("This hand is a tie");
+            System.out.println("\nThis hand is a tie");
 
         return winner;
     }
