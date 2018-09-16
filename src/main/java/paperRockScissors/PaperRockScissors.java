@@ -1,11 +1,8 @@
 package paperRockScissors;
 
 
-import java.util.List;
-
 /**
- * Step 2 implementation of the "Strategy" design pattern:
- * "Generic implementation" of a strategy, that is, an abstract class offering naive implementation of method shared by all games
+ * Paper Rock Scissors game interface
  */
 public interface PaperRockScissors {
 

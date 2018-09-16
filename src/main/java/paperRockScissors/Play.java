@@ -1,5 +1,9 @@
 package paperRockScissors;
 
+
+/**
+ * Represents a player play
+ */
 public class Play {
 
     private final int playerId;

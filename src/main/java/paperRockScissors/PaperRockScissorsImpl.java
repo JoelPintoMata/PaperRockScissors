@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 
 /**
- *
+ * Paper Rock Scissors game concrete class implementation
  */
 public class PaperRockScissorsImpl implements PaperRockScissors {
 
@@ -17,7 +17,7 @@ public class PaperRockScissorsImpl implements PaperRockScissors {
     private int[] score = {0, 0};
 
     /**
-     * PaperRockScissors constructor
+     * Paper Rock Scissors constructor
      * @param numberOfPlays number of game plays, or -1 to play until a winner is found
      * @param scanner
      */
