@@ -1,21 +1,24 @@
-Usage
-=====
+# Paper Rock Scissors game implementation
 
-Compile
--------
+## Technical stack
+* Java 10
+* Maven
+* jUnit 5
+
+## Usage
+
+### Compile
 ```bash
 $ mvn compile
 ```
 
-Package
--------
+### Package
 ```bash
 $ mvn package
 ```
 
-Run
----
-```
+### Run
+```bash
 $ mvn exec:java -Dexec.mainClass="Main"
 ```
 , compile, package and run
@@ -23,19 +26,7 @@ $ mvn exec:java -Dexec.mainClass="Main"
 $ mvn compile && mvn package && mvn exec:java -Dexec.mainClass="Main"
 ```
 
-Test
+### Test
 ```bash
-```
 $ mvn test
 ```
-
-Technical discussion
-====================
-
-Design patterns
----------------
-### Strategy
-Capture the game abstraction into Strategy interface and StrategyTemplate. Finally it buries the implementation details in derived concrete game classes like PaperRockScissorsImpl.
-
-### Dependency injection
-Injection of a external game solution into a game implementation, e.g, PaperRockScissorsSolutionImpl is injected in PaperRockScissorsImpl
