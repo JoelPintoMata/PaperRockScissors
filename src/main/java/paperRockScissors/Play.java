@@ -2,7 +2,7 @@ package paperRockScissors;
 
 
 /**
- * Represents a player play
+ * Represents a individual player play
  */
 public class Play {
 

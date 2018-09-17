@@ -11,17 +11,17 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-//            create a scanner so we can read the command-line input
+//            create a scanner so we can read the command-line inputs
             Scanner scanner = new Scanner(System.in);
 
-            System.out.println("Enter the maximum number of plays of -1 to play until a winner is found: ");
-            int numberOfPlays = Integer.parseInt(scanner.next());
+            System.out.println("Enter the number of hands to play: ");
+            int numberOfHands = Integer.parseInt(scanner.next());
 
-            PaperRockScissors paperRockScissors = new PaperRockScissorsImpl(numberOfPlays, scanner);
+            PaperRockScissors paperRockScissors = new PaperRockScissorsImpl(numberOfHands, scanner);
             paperRockScissors.start();
 
         } catch (NumberFormatException e) {
-            System.out.println("The maximum number of plays should be of type number, bye.\n");
+            System.out.println("The number of hands should be of type number, bye.\n");
         }
     }
 }
